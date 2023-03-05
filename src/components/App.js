@@ -1,42 +1,34 @@
-import { cards } from '../constants/cards'
+import { useState } from 'react'
+
+import Header from './Header'
+import Main from './Main'
+import Footer from './Footer'
 
 import styled from 'styled-components'
-import logo from '../assets/logo.png'
 
 function App() {
+  const [numberAnswered, setAnsweredNumber] = useState(0)
 
   return (
     <>
-      <Container>
-        <Header>
-          <img src={logo} />
-          <h1>ZapRecall</h1>
-        </Header> 
-      </Container>
+      <ContainerStyled>
+        <Header />
+        <Main 
+          numberAnsweredObject={{
+            numberAnswered,
+            setAnsweredNumber
+          }}
+        />
+        <Footer 
+          numberAnswered={numberAnswered} 
+        />
+      </ContainerStyled>
     </>
   )
 }
 
 export default App
 
-const Container = styled.main`
-  max-width: 375px;
-`
-
-const Header = styled.header `
-  margin-top: 48px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  h1 {
-    font-family: Righteous;
-    font-size: 36px;
-    color: #fff;
-  }
-
-  img {
-    width: 52px;
-    height: 60px;
-  }
+const ContainerStyled = styled.main`
+  width: 375px;
 `

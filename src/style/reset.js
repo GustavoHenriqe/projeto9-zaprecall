@@ -26,6 +26,9 @@ const ResetCss = createGlobalStyle`
     footer, header, hgroup, menu, nav, section {
         display: block;
     }
+    * {
+        box-sizing: border-box;
+    }
     body {
         line-height: 1;
         font-family: 'Recursive';
