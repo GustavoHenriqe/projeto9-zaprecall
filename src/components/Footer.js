@@ -6,7 +6,7 @@ export default function Footer({numberAnswered}) {
     return (
         <>
             <FooterStyled>
-                <span>{numberAnswered}/{cards.length}</span>
+                <span>{numberAnswered}/{cards.length} Concluidos</span>
             </FooterStyled>
         </>
     )
@@ -26,7 +26,7 @@ const FooterStyled = styled.footer`
 
     span {
         font-weight: 400;
-        font-size: 29px;
+        font-size: 20px;
         line-height: 22px;
     }
 `

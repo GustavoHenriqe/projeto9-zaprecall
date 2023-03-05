@@ -13,9 +13,10 @@ import icone_quase from '../assets/icone_quase.png'
 export default function Main({numberAnsweredObject}) {
     return (
         <>
-            <MainStyled>
+            <MainStyled >
                 {cards.map(info =>
                     <Cards
+                        data-test="flashcard"
                         numberAnsweredObject={numberAnsweredObject}
                         id={info.id}
                         questions={info.question}
@@ -52,8 +53,9 @@ function Cards({ id, questions, answer, numberAnsweredObject }) {
                 replied={replied}
                 colorText={colorText}
             >
-                <span>Pergunta {id}</span>
+                <span data-test="flashcard-text" >Pergunta {id}</span>
                 <button
+                    data-test="play-btn"
                     onClick={() => setHiddenElement(true)}
                     disabled={replied}
                 >
@@ -67,7 +69,7 @@ function Cards({ id, questions, answer, numberAnsweredObject }) {
                 colors={colors}
             >
                 <div className="front">
-                    <p>
+                    <p data-test="flashcard-text" >
                         {questions}
                     </p>
                     <button onClick={() => setAnimation(false)}>
@@ -75,11 +77,12 @@ function Cards({ id, questions, answer, numberAnsweredObject }) {
                     </button>
                 </div>
                 <div className="back">
-                    <p>
+                    <p data-test="flashcard-text" >
                         {answer}
                     </p>
                     <div className="zaps-buttons">
                         <button
+                            data-test="no-btn"
                             className="red"
                             onClick={() => repliedSucess(colors[0], icone_erro)}
                         >
@@ -87,6 +90,7 @@ function Cards({ id, questions, answer, numberAnsweredObject }) {
                         </button>
 
                         <button
+                            data-test="partial-btn"
                             className="yellow"
                             onClick={() => repliedSucess(colors[1], icone_quase)}
                         >
@@ -94,6 +98,7 @@ function Cards({ id, questions, answer, numberAnsweredObject }) {
                         </button>
 
                         <button
+                            data-test="zap-btn"
                             className="green"
                             onClick={() => repliedSucess(colors[2], icone_certo)}
                         >
